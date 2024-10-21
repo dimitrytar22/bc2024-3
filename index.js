@@ -38,3 +38,16 @@ if (options.input != null && options.output != null) {
     if(options.display != null)
         console.log(inputData);
 }
+const data_string = fs.readFileSync("data.json", 'utf-8');
+const data2 = JSON.parse(data_string);
+
+  function filterAndPrintData(data2) {
+    const filtered = data2.filter(item => item.txt === "Доходи, усього" || item.txt === "Витрати, усього");
+    
+    filtered.forEach(item => {
+      console.log(`${item.txt}:${item.value}`);
+    });
+  }
+  
+  filterAndPrintData(data2);
+  
