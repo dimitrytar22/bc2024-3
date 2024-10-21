@@ -23,7 +23,7 @@ const data = options.output;
 
 
 
-if (options.output != null && options.output != null) {
+if (options.input != null && options.output != null) {
     const inputData = fs.readFileSync(options.input, 'utf-8');
     const outputFIlePath = path.resolve(options.output);
 
@@ -35,5 +35,6 @@ if (options.output != null && options.output != null) {
         console.log('error writing file');
     }
 
-    console.log(inputData);
+    if(options.display != null)
+        console.log(inputData);
 }
